@@ -141,6 +141,26 @@
             padding: 1rem;
         }
 
+	.hero-photo {
+   	 width: 100%;
+ 	   height: 100%;
+ 	   object-fit: cover;
+  	  border-radius: 4px;
+	}
+
+	.gallery-img {
+   	 width: 100%;
+   	 height: 100%;
+   	 object-fit: cover;
+    	border-radius: 4px;
+    	display: block;
+	}
+
+	.pic-6 {
+  	  grid-column: span 1;
+   	 grid-row: span 1;
+	}
+
         .chat-bubble {
             background: var(--white);
             padding: 2rem 2.5rem;
@@ -516,10 +536,10 @@
     
     <nav>
         <ul>
-            <li><a href="#hero">Start</a></li>
-            <li><a href="#journey">Moments</a></li>
-            <li><a href="#reasons">Reasons</a></li>
-            <li><a href="#surprise">Surprises</a></li>
+            <li><a href="#hero">start</a></li>
+            <li><a href="#journey">moments</a></li>
+            <li><a href="#reasons">reasons</a></li>
+            <li><a href="#surprise">surprises</a></li>
         </ul>
     </nav>
 
@@ -529,10 +549,8 @@
         
         <div class="avatar-container">
             <div class="avatar">
-                <div class="avatar-inner">
-                    place our<br>photo here<br>🤍
-                </div>
-            </div>
+    		<img src="https://i.postimg.cc/L8X5Qy1F/place-our-photo-here.jpg" alt="Us Together" class="hero-photo">
+		</div>
         </div>
 
         <div class="chat-bubble">
@@ -545,90 +563,97 @@
     </section>
 
     <!-- SECTION 2: OUR JOURNEY -->
-    <section id="journey">
-        <h2 class="section-title reveal">Our little moments 📷</h2>
-        <div class="gallery reveal">
-            <div class="photo-card pic-2">
-                <div class="photo-placeholder"></div>
-                <div class="photo-caption">our first date</div>
-            </div>
-            <div class="photo-card pic-2">
-                <div class="photo-placeholder"></div>
-                <div class="photo-caption">your favorite coffee shop</div>
-            </div>
-            <div class="photo-card pic-3">
-                <div class="photo-placeholder"></div>
-                <div class="photo-caption">when you sleep during video calls</div>
-            </div>
-            <div class="photo-card pic-4">
-                <div class="photo-placeholder"></div>
-                <div class="photo-caption">you a cutie</div>
-            </div>
-            <div class="photo-card pic-2">
-                <div class="photo-placeholder"></div>
-                <div class="photo-caption">my favorite view</div>
-            </div>
+   <section id="journey">
+    <h2 class="section-title reveal">our little moments 📷</h2>
+
+    <div class="gallery reveal">
+
+        <div class="photo-card pic-2">
+            <img src="https://i.postimg.cc/Jzn0YTkJ/our-first-date.png" alt="Memory 1" class="gallery-img">
+            <div class="photo-caption">our first date</div>
         </div>
-    </section>
+
+        <div class="photo-card pic-2">
+            <img src="https://i.postimg.cc/Y0z0ZZR3/your-favorite.jpg" alt="Memory 2" class="gallery-img">
+            <div class="photo-caption">your favorite coffee shop</div>
+        </div>
+
+        <div class="photo-card pic-3">
+            <img src="https://i.postimg.cc/CKn1Sz7r/sleep.png" alt="Memory 3" class="gallery-img">
+            <div class="photo-caption">when you sleep during video calls</div>
+        </div>
+
+        <div class="photo-card pic-4">
+            <img src="https://i.postimg.cc/VvWvppgb/cutie.png" alt="Memory 4" class="gallery-img">
+            <div class="photo-caption">you a cutie</div>
+        </div>
+
+        <div class="photo-card pic-2">
+            <img src="https://i.postimg.cc/tJNJwwkz/favorite.jpg" alt="Memory 5" class="gallery-img">
+            <div class="photo-caption">my favorite view</div>
+        </div>
+
+    </div>
+</section>
 
     <!-- SECTION 3: REASONS I LOVE YOU -->
     <section id="reasons">
-        <h2 class="section-title reveal">Why you? Here's why. 💌</h2>
+        <h2 class="section-title reveal">why you? here's why 💌</h2>
         <div class="reasons-grid reveal">
             <!-- Card 1 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Your laugh</div>
-                    <div class="flip-card-back">It's literally my favorite sound in the world. It instantly cures any bad day I'm having.</div>
+                    <div class="flip-card-front">your laugh</div>
+                    <div class="flip-card-back">it's literally my favorite sound in the world, it instantly cures any bad day i'm having</div>
                 </div>
             </div>
             <!-- Card 2 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Late night chats</div>
-                    <div class="flip-card-back">When the world goes quiet and it's just you and me, sharing our biggest dreams and silliest thoughts.</div>
+                    <div class="flip-card-front">late night talks</div>
+                    <div class="flip-card-back">when the world goes quiet and it's just you and me, sharing our biggest dreams and silliest thoughts</div>
                 </div>
             </div>
             <!-- Card 3 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">The way you care</div>
-                    <div class="flip-card-back">You have this beautiful, gentle heart that loves so deeply. It inspires me to be a better person.</div>
+                    <div class="flip-card-front">the way you care</div>
+                    <div class="flip-card-back">you have this beautiful, gentle heart that loves so deeply, it inspires me to be a better person.</div>
                 </div>
             </div>
             <!-- Card 4 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Your silly faces</div>
-                    <div class="flip-card-back">The ones you make when you think no one is looking. They make me fall in love with you all over again.</div>
+                    <div class="flip-card-front">your silly faces</div>
+                    <div class="flip-card-back">the ones you make when you think no one is looking, they make me fall in love with you all over again</div>
                 </div>
             </div>
             <!-- Card 5 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Feeling seen</div>
-                    <div class="flip-card-back">You notice the little things about me that even I miss. You understand my soul without words.</div>
+                    <div class="flip-card-front">feeling seen</div>
+                    <div class="flip-card-back">you notice the little things about me that even i miss, you understand my soul without words.</div>
                 </div>
             </div>
             <!-- Card 6 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Your voice</div>
-                    <div class="flip-card-back">It feels exactly like home. Calling you is the absolute best part of my day, every single day.</div>
+                    <div class="flip-card-front">your voice</div>
+                    <div class="flip-card-back">it feels exactly like home, calling you is the absolute best part of my day, every single day.</div>
                 </div>
             </div>
             <!-- Card 7 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">When you talk to me</div>
-                    <div class="flip-card-back">It still gives me those stupid butterflies every single time, just knowing I was on your mind.</div>
+                    <div class="flip-card-front">when you talk to me</div>
+                    <div class="flip-card-back">it still gives me those stupid butterflies every single time, just knowing i was on your mind</div>
                 </div>
             </div>
             <!-- Card 8 -->
             <div class="flip-card" tabindex="0">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">Your everything</div>
-                    <div class="flip-card-back">There isn't a single part of you I wouldn't choose in every lifetime. You are my everything.</div>
+                    <div class="flip-card-front">your everything</div>
+                    <div class="flip-card-back">there isn't a single part of you i wouldn't choose in every lifetime, you are my everything.</div>
                 </div>
             </div>
         </div>
@@ -637,11 +662,11 @@
     <!-- SECTION 4: SURPRISE CORNER -->
     <section id="surprise">
         <div class="surprise-container reveal">
-            <h2 class="section-title" style="margin-bottom: 1rem;">A little more love for you 🎀</h2>
+            <h2 class="section-title" style="margin-bottom: 1rem;">a little more love for you 🎀</h2>
             
             <!-- Part A: Countdown -->
             <div class="countdown-wrapper">
-                <h3>Until our next date 🌷</h3>
+                <h3>until our next date🌷</h3>
                 <div class="timer">
                     <div class="time-box">
                         <span class="time-num" id="days">00</span>
@@ -664,12 +689,12 @@
 
             <!-- Part B: Quiz -->
             <div class="quiz-wrapper">
-                <h3>What kind of love do you need today?</h3>
+                <h3>what kind of love do you need today?</h3>
                 <div class="quiz-options">
-                    <button class="quiz-btn" data-answer="song">🎵 A song for you</button>
-                    <button class="quiz-btn" data-answer="letter">💌 A love letter</button>
-                    <button class="quiz-btn" data-answer="cozy">🍵 A cozy night in</button>
-                    <button class="quiz-btn" data-answer="hold">🌙 Just hold me</button>
+                    <button class="quiz-btn" data-answer="song">🎵 a song for you</button>
+                    <button class="quiz-btn" data-answer="letter">💌 a love letter</button>
+                    <button class="quiz-btn" data-answer="cozy">🍵 a cozy night in</button>
+                    <button class="quiz-btn" data-answer="hold">🌙 just hold me</button>
                 </div>
                 <div class="quiz-response">
                     <p class="response-text" id="quiz-response-text"></p>
@@ -680,7 +705,7 @@
 
     <!-- SECTION 5: CONFETTI BUTTON -->
     <section id="confetti" class="reveal">
-        <button class="heart-btn" id="confettiBtn">Press & Hold My Heart 💗</button>
+        <button class="heart-btn" id="confettiBtn">press & hold my heart 💗</button>
     </section>
 
     <!-- Canvas for Confetti Overlay -->
@@ -731,7 +756,7 @@
                 targetYear++; // If past Aug 11 this year, target next year
             }
             // For the prompt's sake, we will hardcode to a future date to ensure it displays nicely:
-            const targetDate = new Date(`August 11,2026 ${Math.max(2026, targetYear)} 00:00:00`).getTime();
+            const targetDate = new Date(2026, 7, 11, 0, 0, 0).getTime();
 
             const updateCountdown = () => {
                 const now = new Date().getTime();
@@ -765,9 +790,9 @@
             const responseText = document.getElementById('quiz-response-text');
 
             const responses = {
-                song: "Listen to 'Yellow' by Coldplay. Every time I hear it, I think of how you light up my world. You are my stars.",
-                letter: "You are the best thing that's ever happened to me. I don't say it enough, but I cherish every single second with you. I love you, Zhermalhaine.",
-                cozy: "Imagine this: big fluffy blankets, your favorite movie on the screen, hot chocolate, and me holding you close all night long.",
+                song: "Listen to 'Beyond' by Leon Bridges. Every time I hear it, I think of how you light up my world. You are my stars and beyond.",
+                letter: "You are honestly one of the most meaningful parts of my life. I don’t always find the right words or say it as often as I should, but I cherish every single moment I get to share with you. Even the quiet seconds feel special when it’s with you. I love you, Zhermalhaine. Not just in the big moments, but in the small ones too, in the way you make ordinary days feel softer, brighter, and worth remembering.",
+                cozy: "Imagine this: big fluffy blankets, your favorite movie on the screen, hot coffee, and me holding you close all night long.",
                 hold: "*Wraps arms around you tightly* I'm right here. I've got you, and I'm never letting go. Just breathe, my baby."
             };
 
@@ -809,7 +834,7 @@
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * -canvas.height - 50; // Start above screen
+                    this.y = Math.random() * -canvas.height - 50; // start above screen
                     this.w = Math.random() * 10 + 5; // Width
                     this.h = Math.random() * 10 + 5; // Height
                     this.color = colors[Math.floor(Math.random() * colors.length)];
