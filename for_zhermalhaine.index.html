@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for zhermalhaine 💌</title>
+    
+    <!-- Google Fonts: Playfair Display (Headings), DM Sans (Body), Caveat (Handwriting) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- ==========================================
+         STYLE.CSS
+         ========================================== -->
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --blush-pink: #f9c6c9;
+            --cream: #fff8f0;
+            --soft-lavender: #e8d5f5;
+            --muted-rose: #e8a0a8;
+            --warm-gray: #b0a8a8;
+            --text-dark: #4a4444;
+            --white: #ffffff;
+            
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --font-handwriting: 'Caveat', cursive;
+        }
+
+        /* --- BASE RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 248, 240, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(232, 160, 168, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--muted-rose);
+        }
+
+        /* --- SECTION 1: HERO --- */
+        #hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--blush-pink) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInDown 1.5s ease forwards 0.5s;
+        }
+
+        .avatar-container {
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards 1s;
+        }
+
+        .avatar {
+            width: 220px;
+            height: 240px;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 10px 10px 40px 10px; /* Polaroid effect */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bobbing 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--soft-lavender), var(--blush-pink));
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-family: var(--font-handwriting);
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .chat-bubble {
+            background: var(--white);
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            border-bottom-left-radius: 4px;
+            max-width: 600px;
+            box-shadow: 0 15px 35px rgba(232, 160, 168, 0.15);
+            text-align: left;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards 1.5s;
+        }
+
+        .chat-bubble::before {
+            content: '2:14 AM';
+            position: absolute;
+            top: -25px;
+            left: 10px;
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .chat-bubble p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .chat-bubble p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- SECTION 2: JOURNEY (GALLERY) --- */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+        }
+
+        .gallery {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 250px;
+            }
+            .pic-1 { grid-column: span 2; grid-row: span 2; }
+            .pic-2 { grid-column: span 1; grid-row: span 1; }
+            .pic-3 { grid-column: span 1; grid-row: span 2; }
+            .pic-4 { grid-column: span 1; grid-row: span 1; }
+            .pic-5 { grid-column: span 2; grid-row: span 1; }
+        }
+
+        .photo-card {
+            background: var(--white);
+            padding: 12px 12px 45px 12px;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .photo-placeholder {
+            flex-grow: 1;
+            background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            border-radius: 4px;
+            width: 100%;
+        }
+        
+        /* Subtle colored tints for placeholders */
+        .pic-1 .photo-placeholder { background: linear-gradient(120deg, var(--blush-pink), var(--cream)); }
+        .pic-2 .photo-placeholder { background: linear-gradient(120deg, var(--soft-lavender), var(--cream)); }
+        .pic-3 .photo-placeholder { background: linear-gradient(120deg, var(--muted-rose), var(--blush-pink)); }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-family: var(--font-handwriting);
+            font-size: 1.4rem;
+            color: var(--text-dark);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(232, 160, 168, 0.3);
+        }
+        .photo-card:nth-child(even):hover {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        /* --- SECTION 3: REASONS --- */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 900px) {
+            .reasons-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .flip-card {
+            background-color: transparent;
+            height: 220px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner, 
+        .flip-card.active .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        .flip-card-front {
+            background-color: var(--white);
+            border: 2px solid var(--cream);
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--muted-rose);
+        }
+
+        .flip-card-back {
+            background-color: var(--blush-pink);
+            color: var(--text-dark);
+            transform: rotateY(180deg);
+            font-family: var(--font-handwriting);
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+
+        /* --- SECTION 4: SURPRISE --- */
+        .surprise-container {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            box-shadow: 0 20px 40px rgba(232, 160, 168, 0.1);
+            text-align: center;
+        }
+
+        .countdown-wrapper {
+            margin-bottom: 4rem;
+        }
+
+        .countdown-wrapper h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--muted-rose);
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            min-width: 100px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+        }
+
+        .time-num {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            color: var(--text-dark);
+        }
+
+        .time-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--warm-gray);
+        }
+
+        .quiz-wrapper h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        .quiz-options {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-btn {
+            background: var(--cream);
+            border: 2px solid transparent;
+            padding: 1rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quiz-btn:hover, .quiz-btn.selected {
+            background: var(--white);
+            border-color: var(--muted-rose);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(232, 160, 168, 0.2);
+        }
+
+        .quiz-response {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .response-text {
+            font-family: var(--font-handwriting);
+            font-size: 1.8rem;
+            color: var(--muted-rose);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+        }
+        
+        .response-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- SECTION 5: CONFETTI --- */
+        #confetti {
+            text-align: center;
+            padding: 4rem 2rem 8rem;
+            position: relative;
+        }
+
+        .heart-btn {
+            background: linear-gradient(135deg, var(--muted-rose), var(--blush-pink));
+            color: var(--white);
+            border: none;
+            padding: 1.5rem 3rem;
+            font-size: 1.2rem;
+            font-family: var(--font-body);
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(232, 160, 168, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: heartbeat 2s infinite;
+            position: relative;
+            z-index: 10;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .heart-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 5px 15px rgba(232, 160, 168, 0.4);
+            animation: none;
+        }
+
+        /* Fullscreen Canvas for Confetti */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bobbing {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.05); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.05); }
+            70% { transform: scale(1); }
+        }
+
+        /* Utility classes for scroll reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         INDEX.HTML (STRUCTURE)
+         ========================================== -->
+    
+    <nav>
+        <ul>
+            <li><a href="#hero">Start</a></li>
+            <li><a href="#journey">Moments</a></li>
+            <li><a href="#reasons">Reasons</a></li>
+            <li><a href="#surprise">Surprises</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero">
+        <h1>this one's for you my baby zhermalhaine</h1>
+        
+        <div class="avatar-container">
+            <div class="avatar">
+                <div class="avatar-inner">
+                    place our<br>photo here<br>🤍
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-bubble">
+            <p> my dearest zhermalhaine,</p>
+            <p>it's late and i can't sleep because my mind is completely full of you, i was just lying here thinking about your smile, the way you laugh at my terrible jokes, and how incredibly lucky i am that our paths crossed.</p>
+            <p>you're my favorite thought, my safest place, and my greatest adventure, i built this just to remind you, in case you ever forget, how completely and deeply loved you are, every single day.</p>
+            <p>always,</p>
+            <p>daz</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: OUR JOURNEY -->
+    <section id="journey">
+        <h2 class="section-title reveal">Our little moments 📷</h2>
+        <div class="gallery reveal">
+            <div class="photo-card pic-2">
+                <div class="photo-placeholder"></div>
+                <div class="photo-caption">our first date</div>
+            </div>
+            <div class="photo-card pic-2">
+                <div class="photo-placeholder"></div>
+                <div class="photo-caption">your favorite coffee shop</div>
+            </div>
+            <div class="photo-card pic-3">
+                <div class="photo-placeholder"></div>
+                <div class="photo-caption">when you sleep during video calls</div>
+            </div>
+            <div class="photo-card pic-4">
+                <div class="photo-placeholder"></div>
+                <div class="photo-caption">you a cutie</div>
+            </div>
+            <div class="photo-card pic-2">
+                <div class="photo-placeholder"></div>
+                <div class="photo-caption">my favorite view</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: REASONS I LOVE YOU -->
+    <section id="reasons">
+        <h2 class="section-title reveal">Why you? Here's why. 💌</h2>
+        <div class="reasons-grid reveal">
+            <!-- Card 1 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Your laugh</div>
+                    <div class="flip-card-back">It's literally my favorite sound in the world. It instantly cures any bad day I'm having.</div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Late night chats</div>
+                    <div class="flip-card-back">When the world goes quiet and it's just you and me, sharing our biggest dreams and silliest thoughts.</div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">The way you care</div>
+                    <div class="flip-card-back">You have this beautiful, gentle heart that loves so deeply. It inspires me to be a better person.</div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Your silly faces</div>
+                    <div class="flip-card-back">The ones you make when you think no one is looking. They make me fall in love with you all over again.</div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Feeling seen</div>
+                    <div class="flip-card-back">You notice the little things about me that even I miss. You understand my soul without words.</div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Your voice</div>
+                    <div class="flip-card-back">It feels exactly like home. Calling you is the absolute best part of my day, every single day.</div>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">When you talk to me</div>
+                    <div class="flip-card-back">It still gives me those stupid butterflies every single time, just knowing I was on your mind.</div>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="flip-card" tabindex="0">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">Your everything</div>
+                    <div class="flip-card-back">There isn't a single part of you I wouldn't choose in every lifetime. You are my everything.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: SURPRISE CORNER -->
+    <section id="surprise">
+        <div class="surprise-container reveal">
+            <h2 class="section-title" style="margin-bottom: 1rem;">A little more love for you 🎀</h2>
+            
+            <!-- Part A: Countdown -->
+            <div class="countdown-wrapper">
+                <h3>Until our next date 💕</h3>
+                <div class="timer">
+                    <div class="time-box">
+                        <span class="time-num" id="days">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-num" id="hours">00</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-num" id="minutes">00</span>
+                        <span class="time-label">Mins</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-num" id="seconds">00</span>
+                        <span class="time-label">Secs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part B: Quiz -->
+            <div class="quiz-wrapper">
+                <h3>What kind of love do you need today?</h3>
+                <div class="quiz-options">
+                    <button class="quiz-btn" data-answer="song">🎵 A song for you</button>
+                    <button class="quiz-btn" data-answer="letter">💌 A love letter</button>
+                    <button class="quiz-btn" data-answer="cozy">🍵 A cozy night in</button>
+                    <button class="quiz-btn" data-answer="hold">🌙 Just hold me</button>
+                </div>
+                <div class="quiz-response">
+                    <p class="response-text" id="quiz-response-text"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONFETTI BUTTON -->
+    <section id="confetti" class="reveal">
+        <button class="heart-btn" id="confettiBtn">Press & Hold My Heart 💗</button>
+    </section>
+
+    <!-- Canvas for Confetti Overlay -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <footer>
+        made with every bit of love i have. — daz
+    </footer>
+
+    <!-- ==========================================
+         SCRIPT.JS (LOGIC)
+         ========================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* --- SCROLL REVEAL ANIMATIONS --- */
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+                
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger on load
+
+            /* --- MOBILE FLIP CARD FIX --- */
+            // Ensures cards flip on tap for touch devices
+            const flipCards = document.querySelectorAll('.flip-card');
+            flipCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+
+            /* --- COUNTDOWN TIMER --- */
+            // Setting target to August 11,2026 this year to ensure it always works
+            const today = new Date();
+            let targetYear = today.getFullYear();
+            if (today.getMonth() > 1 || (today.getMonth() === 1 && today.getDate() > 11)) {
+                targetYear++; // If past Aug 11 this year, target next year
+            }
+            // For the prompt's sake, we will hardcode to a future date to ensure it displays nicely:
+            const targetDate = new Date(`August 11,2026 ${Math.max(2026, targetYear)} 00:00:00`).getTime();
+
+            const updateCountdown = () => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    document.getElementById('days').innerText = "00";
+                    document.getElementById('hours').innerText = "00";
+                    document.getElementById('minutes').innerText = "00";
+                    document.getElementById('seconds').innerText = "00";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Add leading zero
+                document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            };
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            /* --- SURPRISE QUIZ LOGIC --- */
+            const quizBtns = document.querySelectorAll('.quiz-btn');
+            const responseText = document.getElementById('quiz-response-text');
+
+            const responses = {
+                song: "Listen to 'Yellow' by Coldplay. Every time I hear it, I think of how you light up my world. You are my stars.",
+                letter: "You are the best thing that's ever happened to me. I don't say it enough, but I cherish every single second with you. I love you, Zhermalhaine.",
+                cozy: "Imagine this: big fluffy blankets, your favorite movie on the screen, hot chocolate, and me holding you close all night long.",
+                hold: "*Wraps arms around you tightly* I'm right here. I've got you, and I'm never letting go. Just breathe, my baby."
+            };
+
+            quizBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove selected state from all
+                    quizBtns.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+
+                    // Fade out current text
+                    responseText.classList.remove('show');
+                    
+                    // Wait for fade out, change text, fade in
+                    setTimeout(() => {
+                        responseText.innerText = responses[btn.dataset.answer];
+                        responseText.classList.add('show');
+                    }, 300);
+                });
+            });
+
+            /* --- VANILLA JS CONFETTI FROM SCRATCH --- */
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animationId;
+            let isHolding = false;
+
+            // Palette colors for confetti
+            const colors = ['#f9c6c9', '#fff8f0', '#e8d5f5', '#e8a0a8', '#ffffff'];
+
+            // Resize canvas to window size
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            };
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * -canvas.height - 50; // Start above screen
+                    this.w = Math.random() * 10 + 5; // Width
+                    this.h = Math.random() * 10 + 5; // Height
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.vy = Math.random() * 3 + 2; // Vertical velocity
+                    this.vx = Math.random() * 4 - 2; // Horizontal velocity
+                    this.rot = Math.random() * 360; // Rotation
+                    this.rotSpeed = Math.random() * 10 - 5;
+                }
+
+                update() {
+                    this.y += this.vy;
+                    this.x += this.vx;
+                    this.rot += this.rotSpeed;
+                    
+                    // Gently sway horizontally
+                    this.vx += (Math.random() - 0.5) * 0.1;
+                }
+
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.rot * Math.PI / 180);
+                    ctx.fillStyle = this.color;
+                    
+                    // Mix of circles and rectangles
+                    if (this.w > 12) {
+                        ctx.beginPath();
+                        ctx.arc(0, 0, this.w/2, 0, Math.PI * 2);
+                        ctx.fill();
+                    } else {
+                        ctx.fillRect(-this.w/2, -this.h/2, this.w, this.h);
+                    }
+                    ctx.restore();
+                }
+            }
+
+            const renderConfetti = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // If holding button, keep adding particles
+                if (isHolding && particles.length < 300) {
+                    for(let i = 0; i < 10; i++) {
+                        particles.push(new Particle());
+                    }
+                }
+
+                // Update and draw
+                for(let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    // Remove particles that fall off screen
+                    if(particles[i].y > canvas.height + 50) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+
+                // Continue loop if there are particles or button is held
+                if (particles.length > 0 || isHolding) {
+                    animationId = requestAnimationFrame(renderConfetti);
+                } else {
+                    cancelAnimationFrame(animationId);
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            };
+
+            const triggerConfetti = () => {
+                if(!isHolding) {
+                    isHolding = true;
+                    // Initial burst
+                    for(let i = 0; i < 100; i++) {
+                        particles.push(new Particle());
+                    }
+                    renderConfetti();
+                }
+            };
+
+            const stopConfetti = () => {
+                isHolding = false;
+            };
+
+            // Button Events (Mouse & Touch)
+            const btn = document.getElementById('confettiBtn');
+            btn.addEventListener('mousedown', triggerConfetti);
+            btn.addEventListener('touchstart', (e) => { e.preventDefault(); triggerConfetti(); });
+            
+            window.addEventListener('mouseup', stopConfetti);
+            window.addEventListener('touchend', stopConfetti);
+        });
+    </script>
+</body>
+</html>
